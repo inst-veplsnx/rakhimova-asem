@@ -1,0 +1,2746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assem Kerimbaevna Rakhimova</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f7ff 0%, #f0edfc 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .language-switcher:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .language-flag {
+            height: 25px;
+            width: auto;             
+            aspect-ratio: 4 / 3;     
+            cursor: pointer;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .language-flag img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+        }
+        .language-flag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .language-flag.active {
+            transform: scale(1.15);
+        }
+
+        .atom-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        .atom-background .nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(191, 191, 250, 0.8) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+            z-index: 10;
+        }
+
+        .atom-background .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(244, 243, 243, 0.28);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .atom-background .orbit-1 {
+            width: 70%;
+            height: 70%;
+            animation: rotate 25s linear infinite;
+        }
+
+        .atom-background .orbit-2 {
+            width: 50%;
+            height: 50%;
+            animation: rotate 20s linear infinite reverse;
+        }
+
+        .atom-background .orbit-3 {
+            width: 30%;
+            height: 30%;
+            animation: rotate 15s linear infinite;
+        }
+
+        .atom-background .electron {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        
+        .teacher-name {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1.5px;
+        }
+        
+        .teacher-subtitle {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .about-section {
+            padding: 100px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #6a11cb;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 2px;
+        }
+        
+        .about-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 25px;
+        }
+        
+        .teacher-details {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .teacher-details li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .teacher-details li i {
+            color: #6a11cb;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .teacher-photo-container {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(106, 17, 203, 0.2);
+            height: 450px;
+        }
+        
+        .teacher-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .achievements-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #f0edfc, #e6e3fa);
+        }
+        
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .achievements-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .achievements-title .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .achievements-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 30px 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #6a11cb #e6e3fa;
+            scroll-behavior: smooth;
+        }
+        
+        .achievements-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .achievements-carousel::-webkit-scrollbar-track {
+            background: #e6e3fa;
+            border-radius: 4px;
+        }
+        
+        .achievements-carousel::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 4px;
+        }
+        
+        .achievement-card {
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(106, 17, 203, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.25);
+        }
+        
+        .achievement-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .achievement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .achievement-card:hover .achievement-image img {
+            transform: scale(1.05);
+        }
+        
+        .achievement-text {
+            padding: 25px;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .achievement-title {
+            font-size: 1.3rem;
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-description {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        .teacher-achievements-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom,rgb(234, 232, 251), #dcd8f8);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            background: rgba(106, 17, 203, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 101;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background: rgba(255, 78, 123, 0.8);
+        }
+        
+        .modal-image {
+            height: 350px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal-text {
+            padding: 40px;
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            color: #6a11cb;
+            margin-bottom: 20px;
+        }
+        
+        .modal-date {
+            color: #777;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .modal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .doc-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f0edfc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+        
+        .doc-link:hover {
+            background: #6a11cb;
+            color: white;
+        }
+        
+        .doc-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .modal-docs p {
+            color: #777;
+            font-style: italic;
+            padding: 10px 0;
+        }
+
+        .atom-section {
+            padding: 150px 0;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .atom-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .atom-model {
+            width: 300px;
+            height: 300px;
+            margin: 60px auto;
+            position: relative;
+        }
+        
+        .nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
+            z-index: 10;
+        }
+        
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(106, 17, 203, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .orbit-1 {
+            width: 200px;
+            height: 200px;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .orbit-2 {
+            width: 150px;
+            height: 150px;
+            animation: rotate 15s linear infinite reverse;
+        }
+        
+        .orbit-3 {
+            width: 100px;
+            height: 100px;
+            animation: rotate 10s linear infinite;
+        }
+        
+        .electron {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 15px;
+            background: #ff4e7b;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff4e7b;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        .atom-description {
+            max-width: 600px;
+            margin: 40px auto 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #2c0a5f 0%, #1a3c8f 100%);
+            color: white;
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            margin: 25px 0;
+            line-height: 1.8;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .videos-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2c0a5f 0%, #1a3c8f 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .videos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .videos-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .videos-title .section-title {
+            color: white;
+        }
+
+        .videos-title .section-title::after {
+            background: linear-gradient(to right, #ff4e7b, #ff9a8b);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .video-tiktok-container {
+            position: relative;
+            height: 80vh;
+            max-width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .videos-carousel {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .video-tiktok-item {
+            flex: 0 0 100%;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .video-tiktok-item.active {
+            opacity: 1;
+        }
+
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            position: relative;
+            z-index: 3;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+        }
+
+        .video-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .video-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .video-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 4;
+        }
+
+        .indicator-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .video-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.3s ease;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .video-nav:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .video-nav.prev {
+            left: 20px;
+        }
+
+        .video-nav.next {
+            right: 20px;
+        }
+
+        .video-nav i {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .video-player iframe {
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .video-tiktok-container:not(:hover) .video-nav {
+            opacity: 0;
+        }
+        .video-tiktok-container:not(:hover) .video-nav {
+            opacity: 0;
+            transition: opacity 0.5s ease 2s; 
+        }
+        .videos-section2 {
+            padding: 100px 0;
+            background: white;
+            position: relative;
+        }
+        
+        .section-header2 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title2 {
+            font-size: 2.8rem;
+            color: #6a11cb;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle2 {
+            font-size: 1.4rem;
+            color: #555;
+            max-width: 700px;
+            margin: 30px auto 0;
+            line-height: 1.6;
+        }
+        
+        .videos-grid2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .video-card2 {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(106, 17, 203, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+        
+        .video-card2:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(106, 17, 203, 0.25);
+        }
+        
+        .video-player2 {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+            overflow: hidden;
+        }
+        
+        .video-player2 iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .videos-section2 .section2-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .video-info2 {
+            padding: 25px;
+        }
+        
+        .video-title2 {
+            font-size: 1.4rem;
+            color: #6a11cb;
+            margin-bottom: 15px;
+        }
+        
+        .video-description2 {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        
+        .video-meta2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.95rem;
+        }
+        
+        .video-duration2 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-duration2 i {
+            margin-right: 8px;
+            color: #6a11cb;
+        }
+        
+        .video-date2 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-date2 i {
+            margin-right: 8px;
+            color: #6a11cb;
+        }
+        
+        .video-card2 {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .video-card2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .social-section {
+            padding: 50px 0;
+            background: linear-gradient(135deg,rgb(64, 6, 125) 0%,rgb(12, 63, 151) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: block;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-link:hover::before {
+            opacity: 0.9;
+        }
+        
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+        
+        .social-link:hover .social-icon {
+            transform: scale(1.2);
+        }
+        
+        .social-atom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+        
+        .social-nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.33);
+            z-index: 1;
+        }
+        
+        .social-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .social-orbit-1 {
+            width: 100%;
+            height: 100%;
+            animation: rotate 25s linear infinite;
+        }
+        
+        .social-orbit-2 {
+            width: 70%;
+            height: 70%;
+            animation: rotate 20s linear infinite reverse;
+        }
+        
+        .social-orbit-3 {
+            width: 40%;
+            height: 40%;
+            animation: rotate 15s linear infinite;
+        }
+        
+        .social-electron {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: rgb(255, 255, 255);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgb(255, 255, 255);
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .social-title {
+                font-size: 2rem;
+            }
+            
+            .social-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .social-icons {
+                gap: 30px;
+            }
+            
+            .social-link {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .social-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .social-section {
+                padding: 50px 0;
+            }
+            
+            .social-title {
+                font-size: 1.8rem;
+            }
+            
+            .social-icons {
+                gap: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .videos-grid2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .videos-grid2 > div:last-child {
+                grid-column: span 2;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .language-flag { width: 35px; }
+        }
+        
+        @media (max-width: 768px) {
+            .videos-grid2 {
+                grid-template-columns: 1fr;
+                max-width: 390px;
+                margin: 0 auto;
+            }
+            
+            .videos-grid2 > div:last-child {
+                grid-column: span 1;
+            }
+            
+            .section-title2 {
+                font-size: 2.4rem;
+            }
+            
+            .section-subtitle2 {
+                font-size: 1.2rem;
+            }
+            .language-switcher {
+                top: 20px;
+                right: 20px;
+                gap: 10px;
+                padding: 8px 12px;
+            }
+            .language-flag { width: 30px; }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title2 {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle2 {
+                font-size: 1.1rem;
+            }
+            
+            .video-meta2 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .language-switcher {
+                top: 15px;
+                right: 15px;
+                gap: 8px;
+                padding: 6px 10px;
+            }
+            .language-flag { width: 25px; }
+        }
+
+
+        @media (max-width: 768px) {
+            .teacher-name {
+                font-size: 3rem;
+            }
+            
+            .teacher-subtitle {
+                font-size: 1.4rem;
+                padding: 0 20px;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            .teacher-photo{
+                width:250px;
+            }
+            .atom-model {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+            
+            .modal-text {
+                padding: 25px;
+            }
+            
+            .modal-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .teacher-name {
+                font-size: 2.2rem;
+            }
+            
+            .teacher-photo{
+                width:200px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .achievement-card {
+                min-width: 270px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-switcher">
+            <div class="language-flag" data-lang="ru" aria-label="Switch to Russian">
+                <img src="assets/images/flags/Russia.svg" alt="Russian">
+            </div>
+            <div class="language-flag" data-lang="en" aria-label="Switch to English">
+                <img src="assets/images/flags/UK.svg" alt="English">
+            </div>
+            <div class="language-flag" data-lang="kz" aria-label="Switch to Kazakh">
+                <img src="assets/images/flags/Kazakhstan.svg" alt="Kazakh">
+            </div>
+        </div>
+        <div class="header-content">
+            <h1 class="teacher-name">Assem Kerimbaevna Rakhimova</h1>
+            <p class="teacher-subtitle">Chemistry teacher with 15 years of experience. Believes creativity is essential for modern, memorable lessons.</p>
+        </div>
+        <div class="atom-background">
+            <div class="nucleus"></div>
+            <div class="orbit orbit-1">
+                <div class="electron"></div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="electron"></div>
+            </div>
+            <div class="orbit orbit-3">
+                <div class="electron"></div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text animate-on-scroll">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-description">
+                        Hello! I'm a chemistry teacher with 15 years of experience and a genuine passion for my profession. 
+                        Over these years, I've developed my own teaching approach that combines fundamental knowledge with creative methods.
+                    </p>
+                    <p class="about-description">
+                        For me, it's not just about conveying information but sparking genuine interest—showing that chemistry can surprise, inspire, and explain how the world works. 
+                        I actively use modern tools and unconventional formats to make every lesson vibrant and memorable.
+                    </p>
+                    <ul class="teacher-details">
+                        <li><i class="fas fa-graduation-cap"></i> Education: Zhetysu State University named after I. Zhansugurov</li>
+                        <li><i class="fas fa-flask"></i> Teaching Experience: 15 years, Moderator Educator</li>
+                        <li><i class="fas fa-book"></i> "The Best Pedagogical Idea 2024" Competition🥇</li>
+                    </ul>
+                </div>
+                <div class="teacher-photo-container animate-on-scroll">
+                    <img src="assets/images/apai.jpg" 
+                         alt="Photo of Assem Kerimbaevna Rakhimova" 
+                         class="teacher-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="videos-section2">
+        <div class="container2">
+            <div class="section-header2">
+                <h2 class="section-title2">My Creative Approach✨</h2>
+                <p class="section-subtitle2">
+                    Short, catchy chemistry songs that help students quickly memorize elements, laws, and formulas. 
+                    Learning that sticks!
+                </p>
+            </div>
+            
+            <div class="videos-grid2">
+                <div class="video-card2">
+                    
+                    <div class="video-player2">
+                        <video class="section2-video" controls playsinline>
+                            <source src="assets/video/creativity/1.mp4" type="video/mp4">
+                            Your browser doesn't support videos.
+                        </video>
+                    </div>
+
+                    <div class="video-info2">
+                        <h3 class="video-title2">Chemical Equilibrium</h3>
+                        <p class="video-description2">
+                            A song about chemical equilibrium and reversible reactions—making complex topics accessible through rhythm and rhyme. 
+                            Learn how equilibrium works and what shifts it!
+                        </p>
+                        <div class="video-meta2">
+                            <div class="video-duration2">
+                                <i class="fas fa-clock"></i> 59 sec
+                            </div>
+                            <div class="video-date2">
+                                <i class="fas fa-calendar"></i> 12/01/2024
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card2">
+                    <div class="video-player2">
+                        <video class="section2-video" controls playsinline>
+                            <source src="assets/video/creativity/2.mp4" type="video/mp4">
+                            Your browser doesn't support videos.
+                        </video>
+                    </div>
+                    <div class="video-info2">
+                        <h3 class="video-title2">Oxygen: Simplified</h3>
+                        <p class="video-description2">
+                            An energetic song about oxygen—how to obtain it, recognize it, and why this gas is so special. 
+                            Making chemistry engaging and fun!
+                        </p>
+                        <div class="video-meta2">
+                            <div class="video-duration2">
+                                <i class="fas fa-clock"></i> 1 min
+                            </div>
+                            <div class="video-date2">
+                                <i class="fas fa-calendar"></i> 03/17/2024
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card2">
+                    <div class="video-player2">
+                        <video class="section2-video" controls playsinline>
+                            <source src="assets/video/creativity/3.mp4" type="video/mp4">
+                            Your browser doesn't support videos.
+                        </video>
+                    </div>
+                    <div class="video-info2">
+                        <h3 class="video-title2">Sulfur Without Confusion</h3>
+                        <p class="video-description2">
+                            A song about sulfur—its properties, characteristic features, and how to distinguish it from similar substances. 
+                            Learn about sulfur compounds and salt names. Clear, concise, and perfectly structured for retention.
+                        </p>
+                        <div class="video-meta2">
+                            <div class="video-duration2">
+                                <i class="fas fa-clock"></i> 1 min
+                            </div>
+                            <div class="video-date2">
+                                <i class="fas fa-calendar"></i> 12/06/2024
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements-section">
+        <div class="achievements-container">
+            <div class="achievements-title">
+                <h2 class="section-title">My Students' Achievements</h2>
+            </div>
+            <div class="achievements-carousel">
+                <div class="achievement-card" data-id="1">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/1.png" alt="Win at International Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">International Olympiad Win</h3>
+                        <p class="achievement-description">Student Mukhamedzhan Almukhamedov took 2nd place at the Prestigious Distance Chemistry Olympiad</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="2">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/2.png" alt="Participation in international scientific conference with presentation">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Presentation at International Scientific Conference</h3>
+                        <p class="achievement-description">Aruzhan Mamyrova presented at Progress in Science 2024 (Brussels): electrochemical sensors for cardiac biomarkers.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="3">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/3.png" alt="Participation in international scientific conference with presentation">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Presentation at International Scientific Conference</h3>
+                        <p class="achievement-description">Symbat Maratkyzy Kenzhegara presented at Progress in Science 2024 (Brussels): electrochemical sensors for cardiac biomarkers.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="4">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/4.png" alt="1st place at international 'My School' competition">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">1st Place at International "My School" Competition</h3>
+                        <p class="achievement-description">Won international school projects competition for Knowledge Day, Taldykorgan, 2022.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="5">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/5.png" alt="2nd place at Republican KIO Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican KIO Chemistry Olympiad</h3>
+                        <p class="achievement-description">Prize at republican intellectual chemistry olympiad KIO.KZ among 8th graders.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="6">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/6.png" alt="2nd place at Republican Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican Chemistry Olympiad</h3>
+                        <p class="achievement-description">Ayim Akimzhan took the second place in the republican distance chemistry Olympiad, scoring 87% of correct answers and 86 points.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="7">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/7.png" alt="2nd place at Republican Science Projects Competition">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican Science Projects Competition</h3>
+                        <p class="achievement-description">Zhania Ruslankyzy took the second place in the section "Technology" at the republican competition of scientific projects with work on bioplastics and its role in ecology.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="8">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/8.png" alt="2nd place at Republican Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican Chemistry Olympiad</h3>
+                        <p class="achievement-description">Nurikamal Bolatbai took the second place at the republican distance Olympiad in chemistry, having correctly answered 81% of the tasks and scored 80 points.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="9">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/9.png" alt="2nd place at Republican Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican Chemistry Olympiad</h3>
+                        <p class="achievement-description">Ayim Akimzhan took the second place in the republican distance Olympiad in chemistry, having correctly answered 81% of the tasks and scored 80 points.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="10">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/10.png" alt="2nd place at Republican Science Projects Competition">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Republican Science Projects Competition</h3>
+                        <p class="achievement-description">Ayim Askarbai took the second place in the "Technology" section at the republican contest of scientific projects with work on bioplastics and its role in ecology.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="11">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/11.png" alt="3rd place at Republican Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at Republican Chemistry Olympiad</h3>
+                        <p class="achievement-description">Inabat Maksatkyzy took the third place in the republican distance Olympiad in chemistry, having correctly answered 74% of the tasks and scored 73 points.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="12">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/12.png" alt="3rd place at Republican Chemistry Olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at Republican Chemistry Olympiad</h3>
+                        <p class="achievement-description">Ayim Akimzhan took the third place in the republican distance Olympiad in chemistry, having correctly answered 74% of the tasks and scored 73 points.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="13">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/13.png" alt="1st place at NIS school chemistry olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">1st Place at NIS School Chemistry Olympiad</h3>
+                        <p class="achievement-description">Ayim Akimzhan took first place in the Chemistry section at the school Olympiad among 10th grade students of the Nazarbayev Intellectual School.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="14">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/14.png" alt="1st place at Junior Republican Olympiad school stage">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">1st Place at Junior Republican Olympiad School Stage</h3>
+                        <p class="achievement-description">Aisholpan Rinatkyzy took first place at the school stage of the Junior Republican Chemistry Olympiad among students of the Nazarbayev Intellectual School in Taldykorgan</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="15">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/15.png" alt="1st place at Junior Republican Olympiad school stage">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">1st Place at Junior Republican Olympiad School Stage</h3>
+                        <p class="achievement-description">Ayim Akimzhan took first place at the school stage of the Junior Republican Chemistry Olympiad among students of the Nazarbayev Intellectual School in Taldykorgan</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="16">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/16.png" alt="2nd place at NIS school chemistry olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at NIS School Chemistry Olympiad</h3>
+                        <p class="achievement-description">Aisholpan Rinatkyzy took the second place in the Chemistry section at the school Olympiad among 9th grade students of the Nazarbayev Intellectual School.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="17">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/17.png" alt="2nd place at OILAY chemistry olympiad among houses">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at OILAY Chemistry Olympiad Among Snanyraqs</h3>
+                        <p class="achievement-description">Ulpa Tursinbekkyzy took the second place in the OILAY Chemistry Olympiad, held between the Shanyraqs of Nazarbayev Intellectual School in Taldykorgan.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="18">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/18.png" alt="2nd place at Junior Republican Olympiad school stage">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd Place at Junior Republican Olympiad School Stage</h3>
+                        <p class="achievement-description">Nursaya Nurakbai took the second place at the school stage of the Junior Republican Chemistry Olympiad among students of the Nazarbayev Intellectual School in Taldykorgan</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="19">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/19.png" alt="3rd place at NIS school chemistry olympiad">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at NIS School Chemistry Olympiad</h3>
+                        <p class="achievement-description">Ayim Akimzhan took the third place in the Chemistry section at the school Olympiad among 9th grade students of the Nazarbayev Intellectual School.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="20">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/20.png" alt="3rd place at school science festival">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">Zhanibek Kenzhebek, a 10th grade student, took the third place in the Chemistry section at the school's science project festival with a paper on effective methods for solving chemistry problems.</p>
+                    </div>
+                </div>
+
+
+                <div class="achievement-card" data-id="21">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/21.png" alt="3rd place at Junior Republican Olympiad school stage">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at Junior Republican Olympiad School Stage</h3>
+                        <p class="achievement-description">Dilnaz Burakhan took the third place at the school stage of the Junior Republican Chemistry Olympiad among students of the Nazarbayev Intellectual School in Taldykorgan</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="22">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/22.png" alt="3rd place at school science festival">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">Nurikamal Bolatbai, a 9th grade student, took the third place in the Chemistry section at the school's Science Projects festival.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="23">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/23.png" alt="3rd place at OILAY chemistry olympiad among houses">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at OILAY Chemistry Olympiad Among Shanyraqs</h3>
+                        <p class="achievement-description">Ayim Akimzhan took the third place in the OILAY Chemistry Olympiad, held between the Shanyraqs of Nazarbayev Intellectual School in Taldykorgan.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="24">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/24.png" alt="3rd place at school science festival">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">A student of the 9th grade, Ayim Akimzhan, took the third place in the Chemistry section at the school festival of scientific projects.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="25">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/25.png" alt="Winner in 'Most Global Project' nomination">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner: "The Most Global Project" at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">Zhania Ruslankyzy was awarded a diploma in the nomination "The Most Global" for an environmentally oriented bioplastics project.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="26">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/26.png" alt="Winner in 'Most Global Project' nomination">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner: "The Most Global Project" at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">Ayim Asqarbay was awarded a diploma in the nomination "The Most Global" for an environmentally oriented bioplastics project.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="27">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_students/27.png" alt="Winner in 'Best Project Product' nomination">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner: "The Best Project Product" at the School Festival of Scientific Projects</h3>
+                        <p class="achievement-description">Asylymay Kimadil was awarded a diploma in the nomination "The Best Project Product" in "Chemistry" section.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="teacher-achievements-section">
+        <div class="achievements-container">
+            <div class="achievements-title">
+                <h2 class="section-title">My Achievements</h2>
+            </div>
+            <div class="achievements-carousel">
+                <div class="achievement-card" data-id="t1">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/1.jpg" alt="Certificate of Honor">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner of "Best Teaching Idea" Competition</h3>
+                        <p class="achievement-description">Winning a school competition of pedagogical ideas aimed at developing innovative approaches to teaching</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="t2">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/2.jpg" alt="Publication">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">IELTS (Academic) B1 Level Certification</h3>
+                        <p class="achievement-description">Successful completion of the international IELTS exam with an overall score of 4.5 and a CEFR B1 level.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="t3">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/3.png" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of Appreciation from NIS Faculty</h3>
+                        <p class="achievement-description">Gratitude was expressed for the contribution to the development of students and the promotion of educational values.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="t4">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/4.png" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of thanks for participating in the work of the jury of the regional stage of the Republican Olympiad</h3>
+                        <p class="achievement-description">Gratitude was expressed for the contribution to the III (regional) stage of the Republican Olympiad among students of grades 9-11(12).</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="t5">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/5.png" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of Thanks from Educational Department of Almaty</h3>
+                        <p class="achievement-description">Recognition of the contribution to the formation of the intellectual environment in Almaty and congratulations on a professional holiday.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card" data-id="t6">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/6.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Volunteer Program Appreciation Letter</h3>
+                        <p class="achievement-description">A high level of professionalism and care was noted in the framework of volunteer activities at the E.Sikymov school.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t7">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/7.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of thanks for participation in the August Republican Pedagogical Conference</h3>
+                        <p class="achievement-description">Gratitude was expressed for the active work in the subject section and the exchange of best pedagogical practices.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t8">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/8.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">"Strong Family" Program Trainer Certification</h3>
+                        <p class="achievement-description">Participation in the international training of the UNODC on the parent and child support program "Strong family (SFP 10-14)".</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t9">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/9.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner of Republican "Best Teacher Portfolio 2021"</h3>
+                        <p class="achievement-description">1st place in national competition celebrating 30 years of Kazakhstan's independence.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t10">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/10.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Thanks for working on the Daryn.online platform during the emergency period</h3>
+                        <p class="achievement-description">The contribution to the online education of schoolchildren on the Daryn.online platform during the state of emergency was noted.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t11">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/11.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Gratitude from the administration of Nazarbayev Intellectual School of Almaty</h3>
+                        <p class="achievement-description">The contribution to the organization and holding of school events was noted.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t12">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/12.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Winner of NIS Network Research Competition</h3>
+                        <p class="achievement-description">Awarded for contributions to research culture in chemistry teaching.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t13">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/13.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">1st Place in Republican Teachers' Chemistry Olympiad</h3>
+                        <p class="achievement-description">Victory in the republican online Olympiad among teachers in the subject of chemistry.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t14">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/14.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of thanks for participation in "Every Student - a Star" Competition</h3>
+                        <p class="achievement-description">Participation in an aesthetic and educational project aimed at developing patriotism and creative thinking among students.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t15">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/15.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd place at the Republican Chemistry Olympiad from Daryn.online</h3>
+                        <p class="achievement-description">A prize at the online Chemistry teacher Olympiad in 2023.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t16">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/16.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd place at the Republican Chemistry Olympiad for Teachers</h3>
+                        <p class="achievement-description">In September 2022, took the second place at the republican Olympiad, achieving a high result — 81% of correct answers.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t17">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/17.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Letter of thanks for participating in the "Strong Family" program</h3>
+                        <p class="achievement-description">Thanks for the successful organization of the seventh stage of the Strong Family program in the 2023-2024 academic year.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t18">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/18.png" alt="Certificate confirming preparation of international olympiad winners">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">The certificate confirming the preparation of the winners of the international Olympiad</h3>
+                        <p class="achievement-description">Confirmation of the preparation of the winners of the international distance Olympiad "XXI gasyr okushysy" in 2020.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t19">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/19.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">2nd place at the Republican Distance Chemistry Olympiad for teachers</h3>
+                        <p class="achievement-description">In April 2023, I took the second place at the republican Olympiad, showing a high result — 87% of correct answers.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t20">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/20.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">3rd Place in Republican KIO Intellectual Olympiad</h3>
+                        <p class="achievement-description">Prize winner in Republican chemistry KIO olympiad for teachers.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t21">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/21.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Gratitude for active participation in library activities</h3>
+                        <p class="achievement-description">In 2019, I was recognized for initiative and support of the school library, as well as for organizing events as a teacher-organizer of the "Ush Qonyr" Shanyraq.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t22">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/22.png" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Organization of sessions within the framework of the "Tatu Otbasy" program</h3>
+                        <p class="achievement-description">Participation in the successful organization and holding of sessions for children and families under the "Tatu Otbasy" program in the 7th grade.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t23">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/23.png" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Participation in Teaching Experience Mini-Conference</h3>
+                        <p class="achievement-description">Speech at a mini-conference as part of the dissemination of the experience of Nazarbayev Intellectual Schools.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-id="t24">
+                    <div class="achievement-image">
+                        <img src="assets/images/achievements_apai/24.jpg" alt="Certificate">
+                    </div>
+                    <div class="achievement-text">
+                        <h3 class="achievement-title">Award in the nomination "Best performance of a song" at a poetry evening</h3>
+                        <p class="achievement-description">Participation and victory in the nomination "Best song performance" at the poetry evening dedicated to Mukagali Makatayev</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="atom-section">
+        <div class="atom-container">
+            <h2 class="section-title animate-on-scroll">The Amazing World of Atoms</h2>
+            <div class="atom-model">
+                <div class="nucleus"></div>
+                <div class="orbit orbit-1">
+                    <div class="electron"></div>
+                </div>
+                <div class="orbit orbit-2">
+                    <div class="electron"></div>
+                </div>
+                <div class="orbit orbit-3">
+                    <div class="electron"></div>
+                </div>
+            </div>
+            <p class="atom-description animate-on-scroll">
+                An atom is the fundamental particle of matter, consisting of a nucleus and orbiting electrons. 
+                Studying atomic structure helps us understand chemical properties of elements and the laws governing 
+                molecular formation and complex compounds.
+            </p>
+        </div>
+    </section>
+    
+
+    <section class="videos-section">
+        <div class="videos-container">
+            <div class="videos-title">
+            <h2 class="section-title">Teaching Process</h2>
+            <p class="section-subtitle"></p>
+            </div>
+
+            <div class="video-tiktok-container">
+            <div class="video-nav prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+
+            <div class="videos-carousel">
+                <div class="video-tiktok-item active" data-src="assets/video/lessons/1.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Macro and Micro Elements</h3>
+                    <p class="video-description">
+                    Students played "Find Me" game and assembled puzzles to master the material.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/lessons/2.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Alcohols</h3>
+                    <p class="video-description">
+                    Visual explanation of alcohols using 3D models.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/lessons/3.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Multidimensional Topic Exploration</h3>
+                    <p class="video-description">
+                    My students actively examined the topic from different perspectives in creative ways.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/lessons/4.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Experiment</h3>
+                    <p class="video-description">
+                    Conducted a fascinating experiment together with a student.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/lessons/5.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Group Work</h3>
+                    <p class="video-description">
+                    Group Work - one of the best teaching methods.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/lessons/6.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Experiment</h3>
+                    <p class="video-description">
+                    Conducted an engaging experiment together with a student.
+                    </p>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="video-nav next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+
+            <div class="video-indicator">
+                <div class="indicator-dot active" data-index="0"></div>
+                <div class="indicator-dot" data-index="1"></div>
+                <div class="indicator-dot" data-index="2"></div>
+                <div class="indicator-dot" data-index="3"></div>
+                <div class="indicator-dot" data-index="4"></div>
+                <div class="indicator-dot" data-index="5"></div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="videos-section">
+        <div class="videos-container">
+            <div class="videos-title">
+            <h2 class="section-title">My Students</h2>
+            <p class="section-subtitle"></p>
+            </div>
+
+            <div class="video-tiktok-container">
+            <div class="video-nav prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+
+            <div class="videos-carousel">
+                <div class="video-tiktok-item active" data-src="assets/video/feedbacks/1.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Preparation for UNT</h3>
+                    <p class="video-description">
+                    Testimonial from my student who actively prepared with me for UNT.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/feedbacks/2.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">"Who Wants to Win a Million" Game</h3>
+                    <p class="video-description">
+                    Played "Who Wants to Win a Million" with 8th graders to explore topics in an engaging way.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/feedbacks/3.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">Feedback from Students' Parents</h3>
+                    <p class="video-description">
+                    This is worth listening to.
+                    </p>
+                </div>
+                </div>
+
+                <div class="video-tiktok-item" data-src="assets/video/feedbacks/4.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">"Who Wants to Win a Million" Game</h3>
+                    <p class="video-description">
+                    Played the game "Who Wants to Win a Million" with 8th graders to explore topics in an engaging way.
+                    </p>
+                </div>
+                </div>
+
+
+                <div class="video-tiktok-item" data-src="assets/video/feedbacks/5.mp4">
+                <div class="video-player"></div>
+                <div class="video-info">
+                    <h3 class="video-title">"Who Wants to Win a Million" Game</h3>
+                    <p class="video-description">
+                    More content available on my Instagram.
+                    </p>
+                </div>
+                </div>
+
+            </div>
+
+            <div class="video-nav next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+
+            <div class="video-indicator">
+                <div class="indicator-dot active" data-index="0"></div>
+                <div class="indicator-dot" data-index="1"></div>
+                <div class="indicator-dot" data-index="2"></div>
+                <div class="indicator-dot" data-index="3"></div>
+                <div class="indicator-dot" data-index="4"></div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-section">
+        <div class="social-atom">
+            <div class="social-nucleus"></div>
+            <div class="social-orbit social-orbit-1">
+                <div class="social-electron"></div>
+            </div>
+            <div class="social-orbit social-orbit-2">
+                <div class="social-electron"></div>
+            </div>
+            <div class="social-orbit social-orbit-3">
+                <div class="social-electron"></div>
+            </div>
+        </div>
+        
+        <div class="social-container">
+            <h2 class="social-title">More About Me</h2>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/asem_rakhimovaaa/" target="_blank" class="social-link">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236a11cb'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z'/%3E%3C/svg%3E" 
+                         alt="Instagram" class="social-icon">
+                </a>
+                
+                <a href="https://www.tiktok.com/@rakhimovaassem?_t=ZM-8xEGtCT4gUg&_r=1" target="_blank" class="social-link">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236a11cb'%3E%3Cpath d='M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z'/%3E%3C/svg%3E" 
+                         alt="TikTok" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-title">Contact Information</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: rakhimova_a@tk.nis.edu.kz</p>
+                <p><i class="fas fa-phone"></i> Phone: +7 (702) 579-43-25</p>
+                <p><i class="fas fa-school"></i> School: NIS PhM Taldykorgan</p>
+            </div>
+            <p class="copyright">© 2025 Chemistry Teacher's Website. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <div id="achievementModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="Achievement">
+            </div>
+            <div class="modal-text">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <span id="modalDate" class="modal-date"></span>
+                <p id="modalDescription" class="modal-description"></p>
+                <div class="modal-docs">
+                    <h3 class="docs-title"></h3>
+                    <div id="documentsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const achievementsData = {
+            1: {
+                title: "International Olympiad Win",
+                date: "July 15, 2020",
+                description: "Student Mukhamedzhan Almukhamedov took 2nd place at the Prestigious Distance Chemistry Olympiad, showing his brilliant knowledge. It is worth noting that this is not the first achievement of Mukhamedzhan.",
+                image: "assets/images/achievements_students/1.png"
+            },
+            2: {
+                title: "Presentation at International Scientific Conference",
+                date: "February 22-23, 2024",
+                description: "In February 2024, Aruzhan Mamyrova participated in the 5th International Scientific Conference Progress in Science (Brussels, Belgium) with a scientific report on 'Electrochemical sensors based on cardiovascular biomarkers'. The work was devoted to the development and research of electrochemical sensors designed to detect biomarkers related to the state of the cardiovascular system. Participation in the conference confirmed the relevance and scientific significance of the conducted research, as well as facilitated the exchange of experience with the international scientific community.",
+                image: "assets/images/achievements_students/2.png"
+            },
+            3: {
+                title: "Presentation at International Scientific Conference",
+                date: "February 22-23, 2024",
+                description: "In February 2024, Symbat Maratkyzy Kenzhegara participated in the 5th International Scientific Conference Progress in Science (Brussels, Belgium) with a scientific report on 'Electrochemical sensors based on cardiovascular biomarkers'. The work was devoted to the development and research of electrochemical sensors designed to detect biomarkers related to the state of the cardiovascular system. Participation in the conference confirmed the relevance and scientific significance of the conducted research, as well as facilitated the exchange of experience with the international scientific community.",
+                image: "assets/images/achievements_students/3.png"
+            },
+            4: {
+                title: "1st Place at International 'My School' Competition",
+                date: "August 29, 2022",
+                description: "Ayim Akimzhan took 1st place in the international competition 'Menin Mektebim' dedicated to Knowledge Day in Taldykorgan, 2022. Student of Nazarbayev Intellectual School, 8th grade 'B'. Awarded 1st degree diploma for creative contribution and participation. Project supervisor: Assem Kerimbaevna Rakhimova .",
+                image: "assets/images/achievements_students/4.png"
+            },
+            5: {
+                title: "2nd Place at Republican KIO Chemistry Olympiad",
+                date: "January 17, 2023",
+                description: "In January 2023, Ayim Akimzhan took the second place in the republican intellectual Chemistry Olympiad organized by the platform KIO.KZ . The Olympiad was held among 8th grade students in order to test the level of knowledge in the subject. Participation in the competition demonstrated a high level of training and deep knowledge in the field of chemistry. Following the results of the competition, Ayim was awarded a diploma of the II degree. The signature and seal are certified by the organizing committee.",
+                image: "assets/images/achievements_students/5.png"
+            },
+            6: {
+                title: "2nd Place at Republican Chemistry Olympiad",
+                date: "September 21, 2022",
+                description: "A student of the 8th grade of the Nazarbayev Intellectual School of Physics and Mathematics, Ayim Akimzhan, took part in the republican distance Olympiad in Chemistry, organized by the Kazakhstan Ustasy platform.The Olympiad was held at the first level of difficulty and was aimed at identifying the knowledge and logical thinking of students. At the end of the competition, Ayim demonstrated a high level of preparation, answering 87% of the tasks correctly and scoring 86 points, which secured her a II degree diploma.",
+                image: "assets/images/achievements_students/6.png"
+            },
+            7: {
+                title: "2nd Place at Republican Science Projects Competition",
+                date: "May 29, 2023",
+                description: "Zhania Ruslankyzy, a 9th grade student of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, took part in the republican contest of scientific projects among schoolchildren organized by the Academy of Teachers and Young Scientists 'KHTMZBGA'. In the 'Technology' section, she presented a project on the topic 'Bioplastics zhasau zhane ony ekologiyadagi roli' ('Creation of bioplastics and its role in ecology'), where she considered in detail the environmental aspects of using alternative plastics. According to the results of the competition, Zhania took the second place and was awarded a diploma. The head of the scientific work was Assem Kerimbayeva Rakhimova.",
+                image: "assets/images/achievements_students/7.png"
+            },
+            8: {
+                title: "2nd Place at Republican Chemistry Olympiad",
+                date: "December 8, 2022",
+                description: "Nurikamal Bolatbai, a student of the 8th grade of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, took part in the republican online Olympiad on the subject of Chemistry, organized by the educational platform Qazaqstan Ustazy. The Olympiad was held at the III level of difficulty and is aimed at testing the subject knowledge of students. According to the results of the competition, Nurikamal answered 81% of the questions correctly, which allowed her to score 80 points and receive a II degree diploma.",
+                image: "assets/images/achievements_students/8.png"
+            },
+            9: {
+                title: "2nd Place at Republican Chemistry Olympiad",
+                date: "December 8, 2022",
+                description: "A student of the 8th grade of the Nazarbayev Intellectual School of Physics and Mathematics, Ayim Akimzhan, took part in the republican distance Olympiad in Chemistry, organized by the Qazaqstan Ustazy platform. The Olympiad was held at the III level of difficulty and was aimed at identifying the knowledge and logical thinking of students. At the end of the competition, Ayim demonstrated a high level of preparation, answering 81% of the tasks correctly and scoring 80 points, which secured her a II degree diploma.",
+                image: "assets/images/achievements_students/9.png"
+            },
+            10: {
+                title: "2nd Place at Republican Science Projects Competition",
+                date: "May 29, 2023",
+                description: "Ayim Askarbai, a 9th grade student of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, took part in the republican contest of scientific projects among schoolchildren, organized by the Academy of Teachers and Young Scientists 'Khtmzbga'. In the 'Technology' section, she presented a project on the topic 'Bioplastics zhasau zhane ony ekologiyadagi roli' ('Creation of bioplastics and its role in ecology'), where she considered in detail the environmental aspects of using alternative plastics. According to the results of the competition, Ayim took the second place and was awarded a diploma. The head of the scientific work was Assem Kerimbayeva Rakhimova.",
+                image: "assets/images/achievements_students/10.png"
+            },
+            11: {
+                title: "3rd Place at Republican Chemistry Olympiad",
+                date: "December 8, 2022",
+                description: "A student of the 8th grade of Nazarbayev Intellectual School of Physics and Mathematics, Inabat Maksatkyzy, took part in the republican distance Olympiad in Chemistry, organized by the Qazaqstan Ustazy platform.The Olympiad was held at the III level of difficulty and was aimed at identifying the knowledge and logical thinking of students. According to the results of the competition, Inabat demonstrated a high level of preparation, answering 74% of the tasks correctly and scoring 73 points, which secured her a diploma of the III degree.",
+                image: "assets/images/achievements_students/11.png"
+            },
+            12: {
+                title: "3rd Place at Republican Chemistry Olympiad",
+                date: "April 15, 2023",
+                description: "A student of the 8th grade of the Nazarbayev Intellectual School of Physics and Mathematics, Ayim Akimzhan, took part in the republican distance Olympiad in Chemistry, organized by the Qazaqstan Ustazy platform. The Olympiad was held at the IV level of difficulty and was aimed at identifying the knowledge and logical thinking of students. At the end of the competition, Ayim demonstrated a high level of preparation, answering 74% of the tasks correctly and scoring 73 points, which secured her a diploma of the III degree.",
+                image: "assets/images/achievements_students/12.png"
+            },
+            13: {
+                title: "1st Place at NIS School Chemistry Olympiad",
+                date: "2024",
+                description: "Ayim Akimzhan, a 10th grade student of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, became the winner of the school Chemistry Olympiad.The Olympiad was held as part of an internal competition among school students aimed at identifying talented and capable students. Ayim demonstrated deep knowledge of the subject, analytical thinking and the ability to solve complex chemical problems. Following the results of the Olympiad, she was awarded a diploma of the first degree.",
+                image: "assets/images/achievements_students/13.png"
+            },
+            14: {
+                title: "1st Place at Junior Republican Olympiad School Stage",
+                date: "2024",
+                description: "Aisholpan Rinatkyzy was awarded a diploma of the first degree at the school stage of the Junior Republican Olympiad among students of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan. The Olympiad was held as part of the selection process for the network and national levels, in order to identify the strongest students in the subject of Chemistry. The victory in this stage testifies to Aisholpan's high level of training, analytical abilities and system knowledge.",
+                image: "assets/images/achievements_students/14.png"
+            },
+            15: {
+                title: "1st Place at Junior Republican Olympiad School Stage",
+                date: "2022",
+                description: "Ayim Akimzhan was awarded a diploma of the first degree at the school stage of the Junior Republican Olympiad among students of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan.The Olympiad was held as part of the selection process for the network and national levels, in order to identify the strongest students in the subject of Chemistry. The victory in this stage testifies to the high level of training, analytical abilities and system knowledge of Ayim.",
+                image: "assets/images/achievements_students/15.png"
+            },
+            16: {
+                title: "2nd Place at NIS School Chemistry Olympiad",
+                date: "2024",
+                description: "Aisholpan Rinatkyzy, a student of the 8th grade of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, became the silver medalist of the school Chemistry Olympiad.The Olympiad was held as part of an internal competition among school students aimed at identifying talented and capable students. Aisholpan demonstrated deep knowledge of the subject, analytical thinking and the ability to solve complex chemical problems. Following the results of the Olympiad, she was awarded a diploma of the II degree.",
+                image: "assets/images/achievements_students/16.png"
+            },
+            17: {
+                title: "2nd Place at OILAY Chemistry Olympiad Among Snanyraqs",
+                date: "2024",
+                description: "Ulpa Tursinbekkyzy took part in the OILAY Chemistry Olympiad, organized as part of the intra and extracurricular activities of the Nazarbayev Intellectual School in Taldykorgan.The Olympiad was held among students, divided into shanyraqs, in order to study the subject in depth and develop a competitive spirit.Following the results of the competition, Ulpa was awarded a diploma of the II degree, demonstrating deep knowledge of the subject, analytical thinking and the ability to solve complex chemical problems.",
+                image: "assets/images/achievements_students/17.png"
+            },
+            18: {
+                title: "2nd Place at Junior Republican Olympiad School Stage",
+                date: "2024",
+                description: "Nursaya Nurakbai was awarded a II degree diploma at the school stage of the Junior Republican Olympiad among students of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan. The Olympiad was held as part of the selection process for the network and national levels, in order to identify the strongest students in the subject of Chemistry. The victory in this stage testifies to the high level of training, analytical abilities and systemic knowledge of Nursaya.",
+                image: "assets/images/achievements_students/18.png"
+            },
+            19: {
+                title: "3rd Place at NIS School Chemistry Olympiad",
+                date: "2023",
+                description: "Ayim Akimzhan, a 9th grade student of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan, became the bronze medalist of the school Chemistry Olympiad.The Olympiad was held as part of an internal competition among school students aimed at identifying talented and capable students. Ayim demonstrated deep knowledge of the subject, analytical thinking and the ability to solve complex chemical problems. Following the results of the Olympiad, she was awarded a diploma of the III degree.",
+                image: "assets/images/achievements_students/19.png"
+            },
+            20: {
+                title: "3rd Place at the School Festival of Scientific Projects",
+                date: "2023",
+                description: "Zhanibek Kenzhebek took part in the school festival of scientific projects held at the Nazarbayev Intellectual School in Taldykorgan.His research project on the topic 'Chemistry of pani boyynsha yesepterdi sheshudin en tiimdi zholdary' was presented in the Chemistry section and was highly appreciated by the jury. Zhanibek was awarded a diploma of the III degree for the relevance of the topic, originality of approach and clarity of presentation.",
+                image: "assets/images/achievements_students/20.png"
+            },
+            21: {
+                title: "3rd Place at Junior Republican Olympiad School Stage",
+                date: "2022",
+                description: "Dilnaz Burakhan was awarded a diploma of the III degree at the school stage of the Junior Republican Olympiad among students of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan. The Olympiad was held as part of the selection process for the network and national levels, in order to identify the strongest students in the subject of Chemistry. The victory in this stage testifies to the high level of training, analytical abilities and systemic knowledge of Dilnaz.",
+                image: "assets/images/achievements_students/21.png"
+            },
+            22: {
+                title: "3rd Place at the School Festival of Scientific Projects",
+                date: "2024",
+                description: "Nurikamal Bolatbai, a 9th grade student, took the third place in the school festival of scientific projects held at the Nazarbayev Intellectual School in Taldykorgan. The project was presented in the Chemistry section and demonstrated the student's research skills and scientific approach. The achievement reflects a high interest and deep understanding of the subject. Following the results of the festival, Bolatbai Nurikamal was awarded a diploma of the III degree.",
+                image: "assets/images/achievements_students/22.png"
+            },
+            23: {
+                title: "3rd Place at OILAY Chemistry Olympiad Among Shanyraqs",
+                date: "2024",
+                description: "Ayim Akimzhan took part in the OILAY Chemistry Olympiad, organized as part of the intra and extracurricular activities of the Nazarbayev Intellectual School in Taldykorgan.The Olympiad was held among students, divided into shanyraqs, in order to study the subject in depth and develop a competitive spirit.Following the results of the competition, Ayim was awarded a diploma of the III degree, demonstrating deep knowledge of the subject, analytical thinking and the ability to solve complex chemical problems.",
+                image: "assets/images/achievements_students/23.png"
+            },
+            24: {
+                title: "3rd Place at the School Festival of Scientific Projects",
+                date: "2024",
+                description: "Ayim Akimzhan, a student of the 9th grade, took the third place in the school festival of scientific projects, held at the Nazarbayev Intellectual School of Taldykorgan.The project was presented in the Chemistry section and demonstrated the student's research skills and scientific approach. The achievement reflects a high interest and deep understanding of the subject. Following the results of the festival, Akimzhan Ayim was awarded a diploma of the III degree.",
+                image: "assets/images/achievements_students/24.png"
+            },
+            25: {
+                title: "Winner: 'The Most Global Project' at the School Festival of Scientific projects",
+                date: "2023",
+                description: "Within the framework of the school festival of scientific projects in 2023, organized by the Nazarbayev Intellectual School of Taldykorgan, Zhania Ruslankyzy, a student, presented a project called 'Bioplastics zhane onyn ekologiadagi roli'. The work was highly appreciated for its relevance and contribution to solving global environmental problems, which earned it a victory in the nomination 'En zhahandyk zhoba' (The most global project).",
+                image: "assets/images/achievements_students/25.png"
+            },
+            26: {
+                title: "Winner: 'The Most Global Project' at the School Festival of Scientific projects",
+                date: "2023",
+                description: "Within the framework of the school festival of scientific projects in 2023, organized by the Nazarbayev Intellectual School of Taldykorgan, Ayim Asqarbai, a student, presented a project called 'Bioplastics zhane onyn ekologiadagi roli'. The work was highly appreciated for its relevance and contribution to solving global environmental problems, which earned it a victory in the nomination 'En zhahandyk zhoba' (The most global project).",
+                image: "assets/images/achievements_students/26.png"
+            },
+            27: {
+                title: "Winner: 'The Best Project Product' at the School Festival of Scientific projects",
+                date: "2023",
+                description: "Within the framework of the school festival of scientific projects of 2023, organized by Nazarbayev Intellectual School of Taldykorgan City, the student, Asylymai Kimadil presented a scientific project at the school festival of scientific projects.The project under the title 'benefits and harms of a biologically active additive to the human body' examined the application of biological active additives to health people. For the originality of research and practical significance of the development of the project, a special award was awarded in the Nomination 'Best Project Product'.",
+                image: "assets/images/achievements_students/27.png"
+            },
+            t1: {
+                title: "Winner of 'The Best Pedagogical Idea' Competition",
+                date: "2024",
+                description: "Victory in the school competition 'Uzdik pedagogikalyk idea' ('The best pedagogical idea'), organized by Nazarbayev Intellectual Schools. The competition was aimed at identifying and encouraging creative and effective pedagogical solutions that contribute to the improvement of the educational process.",
+                image: "assets/images/achievements_apai/1.jpg",    
+            },
+            t2: {
+                title: "IELTS (Academic) B1 Level Certification",
+                date: "November 25, 2023",
+                description: "Successful completion of the IELTS International English Language exam in the academic module. The overall score was 4.5, which corresponds to the B1 level on the Common European scale (CEFR). Results in sections: Listening — 4.5, Reading — 3.5, Writing — 5.0, Speaking — 5.5. The certificate was issued by the official accredited IDP IELTS Center (KZ 005) and confirmed with a validating seal.",
+                image: "assets/images/achievements_apai/2.jpg",    
+            },
+            t3: {
+                title: "Letter of Appreciation from NIS Faculty",
+                date: "2023",
+                description: "In 2023, the teaching staff of the Nazarbayev Intellectual School of Physics and Mathematics in Taldykorgan was awarded a letter of appreciation in recognition of its contribution to the formation of a successful and thinking generation. High professional fortitude, pedagogical skills, personal dedication and active participation in the education and training of students were noted. The important role in the development of independent thinking and interest in the subject among students is emphasized.",
+                image: "assets/images/achievements_apai/3.png",    
+            },
+            t4: {
+                title: "Letter of thanks for participating in the work of the jury of the regional stage of the Republican Olympiad",
+                date: "2024",
+                description: "For active participation in the work of the jury of the III (regional) stage of the republican Olympiad among students of grades 9-11 (12) in general education subjects, a letter of thanks was presented from the Department of Education of the Zhetysu region. High professionalism, expert knowledge and practical experience were noted, which made a significant contribution to the quality of the event.",
+                image: "assets/images/achievements_apai/4.png",    
+            },
+            t5: {
+                title: "Letter of Thanks from Educational Department of Almaty",
+                date: "2020",
+                description: "In 2020, on the occasion of a professional holiday, Teacher's Day, a letter of thanks was presented from the Almaty City Education Department. The letter expresses special appreciation for the contribution to the formation of the intellectual environment, dedication and initiative. Good health and success in the realization of future endeavors were wished.",
+                image: "assets/images/achievements_apai/5.png",    
+            },
+            t6: {
+                title: "Volunteer Program Appreciation Letter",
+                date: "2023",
+                description: "For showing a high level of professionalism, responsibility and caring for children from the E.Sikymov school, I was awarded a letter of thanks. Volunteering as a teacher has helped me create favorable conditions for the growth and development of students, as well as contributed to building a better world. Gratitude was expressed by the management of Nazarbayev Intellectual Schools (NIS) in Taldykorgan.",
+                image: "assets/images/achievements_apai/6.jpg",    
+            },
+            t7: {
+                title: "Letter of thanks for participation in the August Republican Pedagogical Conference",
+                date: "August 18, 2023",
+                description: "In the city of Taldykorgan, within the framework of the republican August conference of teachers, a letter of thanks was presented for my active participation in the work of the subject section. The event was organized by the Center for Pedagogical Excellence and Nazarbayev Intellectual Schools in order to improve the quality of education. The contribution to the dissemination of best practices and a high level of professionalism was noted.",
+                image: "assets/images/achievements_apai/7.jpg",    
+            },
+            t8: {
+                title: "'Strong Family' Program Trainer Certification",
+                date: "August 12-15, 2019",
+                description: "The Trainer Training (ToT) of the Strong Family International Program (SFP 10-14) for parents and their children aged 10 to 14 years was completed in Almaty. The training was organized within the framework of Subprogramme 3 of the United Nations Office on Drugs and Crime (UNODC) Regional Programme for Afghanistan and Neighboring Countries, with the participation of Oxford Brookes University and with the support of Finland. The training was conducted under the guidance of international experts, and is aimed at developing stable family ties and preventing antisocial behavior among adolescents.",
+                image: "assets/images/achievements_apai/8.jpg",    
+            },
+            t9: {
+                title: "Winner of Republican 'Best Teacher Portfolio 2021'",
+                date: "2021",
+                description: "As part of the events dedicated to the 30th anniversary of Independence of the Republic of Kazakhstan, I took part in the republican contest 'Best teacher portfolios - 2021', organized with the aim of widely popularizing the program 'Tauelsizdik barinen kymbat'. I was awarded a first degree diploma for my high professionalism and well-prepared portfolio.",
+                image: "assets/images/achievements_apai/9.jpg",    
+            },
+            t10: {
+                title: "Thanks for working on the Daryn.online platform during the emergency period",
+                date: "",
+                description: "A letter of thanks from the republican educational platform Daryn.online with the support of the Ministry of Education and Science of the Republic of Kazakhstan. During the state of emergency, I have made a significant contribution to distance learning by providing students with high-quality and modern education. My efforts have helped to adapt the educational process to new conditions and maintain a high level of training for the younger generation.",
+                image: "assets/images/achievements_apai/10.jpg",    
+            },
+            t11: {
+                title: "Gratitude from the administration of Nazarbayev Intellectual School of Almaty",
+                date: "2019",
+                description: "Awarded appreciation letter from PhM NIS Almaty administration for active participation in school community life. Particularly noted role as teacher-organizer and head of 'Ush Qonur' snahyraq, successfully conducting several events.",
+                image: "assets/images/achievements_apai/11.jpg",    
+            },
+            t12: {
+                title: "Winner of NIS Network Research Competition",
+                date: "2024",
+                description: "Was awarded the diploma of the winner in the online research competition 'Okushylardyn negizgi kuzyrettilikterin damytu' ('Development of key competencies of students') among teachers of Nazarbayev Intellectual Schools. The award was given for my contribution to the development of a research culture in chemistry teaching and the promotion of active teaching methods.",
+                image: "assets/images/achievements_apai/12.jpg",    
+            },
+            t13: {
+                title: "1st Place in Republican Teachers' Chemistry Olympiad",
+                date: "December 2023",
+                description: "Took 1st place at Republican Pedagogical Olympiad dedicated to Education Workers' Day. The Olympiad was held remotely and brought together the best specialists from all regions of the country. The victory was won in the chemistry nomination, which indicates the high level of my professionalism and subject training.",
+                image: "assets/images/achievements_apai/13.jpg",    
+            },
+            t14: {
+                title: "Participation in 'Every Student - A Star' Competition",
+                date: "2024",
+                description: "Took part in the 'Every student - a Star' competition, organized with the aim of improving aesthetic education, strengthening the bond between teacher and student, as well as forming a patriotic and organizational spirit. For the active participation and contribution to the development of artistic perception of students, gratitude was expressed from the administration of the Nazarbayev Intellectual School in Taldykorgan.",
+                image: "assets/images/achievements_apai/14.jpg",    
+            },
+            t15: {
+                title: "2nd place at the Republican Chemistry Olympiad from Daryn.online",
+                date: "January 2023",
+                description: "The second place was taken at the Republican Subject Olympiad in Chemistry, organized by the educational platform Daryn.online for teachers. The Olympiad was held online in January 2023 and covered a wide range of professional knowledge in chemistry.",
+                image: "assets/images/achievements_apai/15.jpg",    
+            },
+            t16: {
+                title: "2nd place at the Republican Chemistry Olympiad for Teachers",
+                date: "September 21, 2022",
+                description: "At the Republican Chemistry Olympiad for teachers of the III level of difficulty, a high result was achieved — 81% of correct answers and 80 points out of 100 possible. A diploma of the II degree was awarded for successful participation and demonstration of a high level of subject knowledge.",
+                image: "assets/images/achievements_apai/16.jpg",    
+            },
+            t17: {
+                title: "Letter of thanks for participating in the 'Strong Family' program",
+                date: "2023-2024",
+                description: "In the 2023-2024 academic year, the seventh wave of the 'Strong Family' school program was successfully organized, aimed at improving teenagers' relationships with their parents and reducing the impact of negative family factors. The participation and contribution to the implementation of this initiative were marked by a letter of thanks from the Nazarbayev Intellectual School of Taldykorgan.",
+                image: "assets/images/achievements_apai/17.jpg",    
+            },
+            t18: {
+                title: "The certificate confirming the preparation of the winners of the international Olympiad",
+                date: "2020",
+                description: "Took an active part in preparing students for the international distance Olympiad 'XXI gasyr okushysy', organized by the portal UCHITELYA.KZ . According to the results of the Olympiad, my students showed high results and became winners. I Was awarded a certificate for my professional contribution and pedagogical skills.",
+                image: "assets/images/achievements_apai/18.png",    
+            },
+            t19: {
+                title: "2nd place at the Republican Distance Chemistry Olympiad for teachers",
+                date: "April 14, 2023",
+                description: "Took part in the IV level of difficulty of the Republican Distance Chemistry Olympiad organized by Qazaqstan ustazy. According to the results of the Olympiad, 87% of the correct answers were given and 86 points were scored, which secured to me the honorable second place.",
+                image: "assets/images/achievements_apai/19.jpg",    
+            },
+            t20: {
+                title: "3rd Place in Republican KIO Intellectual Olympiad",
+                date: "January 17, 2023",
+                description: "Was awarded the III degree at the Republican Intellectual Chemistry Olympiad organized by the platform KIO.KZ . The Olympiad is aimed at improving the skills of teachers by testing their professional knowledge. This result confirms the high level of training and commitment to professional development.",
+                image: "assets/images/achievements_apai/20.jpg",    
+            },
+            t21: {
+                title: "Gratitude for active participation in library activities",
+                date: "April 25, 2019",
+                description: "Was awarded a letter of thanks for love of books, active participation in the life of the school library and contribution to its development. Also noted role as a teacher-organizer and head of the 'Ush Qonyr' shanyraq, within the framework of which I successfully held a number of events.",
+                image: "assets/images/achievements_apai/21.jpg",    
+            },
+            t22: {
+                title: "Organization of sessions within the framework of the 'Tatu Otbasy' program",
+                date: "October 21 - November 2, 2019",
+                description: "Organized and conducted session series under 'Tatu Otbasy' program among 7 'B' class students. Program aimed at developing family values, improving child-parent communication, and forming healthy school environment. Work included planning and conducting thematic meetings, activities, and discussions promoting positive behavior models. Issued certificate for contribution.",
+                image: "assets/images/achievements_apai/22.png",    
+            },
+            t23: {
+                title: "Participation in Teaching Experience Mini-Conference",
+                date: "June 10, 2019",
+                description: "A mini-conference was held in Almaty as part of the program to disseminate the pedagogical experience of Nazarbayev Intellectual Schools. The event featured personal teaching experience aimed at improving the quality of education and developing innovative approaches to teaching. Participation in the conference allowed us to share the results of our own practice, as well as contribute to the development of the professional community.",
+                image: "assets/images/achievements_apai/23.png",    
+            },
+            t24: {
+                title: "Award in the nomination 'Best performance of a song' at a poetry evening",
+                date: "2019",
+                description: "A poetry evening dedicated to the birthday of Kazakh poet Mukagali Makatayev was held at the Nazarbayev Intellectual School of Physics and Mathematics in Almaty. The event called 'Poetry, menimen egiz be edin?' gathered participants who showed creative abilities. During the evening, I was awarded in the nomination 'Best Song Performance' for an expressive and emotional musical performance. This participation contributed to the my development of creative potential and cultural self-realization.",
+                image: "assets/images/achievements_apai/24.jpg",    
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+            
+            const achievementCards = document.querySelectorAll('.achievement-card');
+            const modal = document.getElementById('achievementModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDate = document.getElementById('modalDate');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeModal = document.querySelector('.close-modal');
+            
+            achievementCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const achievement = achievementsData[id];
+                    
+                    if (achievement) {
+                        modalImg.src = achievement.image;
+                        modalTitle.textContent = achievement.title;
+                        modalDate.textContent = achievement.date;
+                        modalDescription.textContent = achievement.description;
+                        
+                        documentsContainer.innerHTML = '';
+                        
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            const allCarousels = document.querySelectorAll('.video-tiktok-container');
+
+            allCarousels.forEach(container => {
+                container.firstVideoHasPlayed = false;
+
+                const videoItems    = container.querySelectorAll('.video-tiktok-item');
+                const indicatorDots = container.querySelectorAll('.indicator-dot');
+                const carousel      = container.querySelector('.videos-carousel');
+                const prevButton    = container.querySelector('.video-nav.prev');
+                const nextButton    = container.querySelector('.video-nav.next');
+
+                let currentVideoIndex = 0;
+                let hideControlsTimer;
+                let autoPlayInterval;
+
+                const localVideoSrcs = Array.from(videoItems).map(item => {
+                return item.getAttribute('data-src');
+                });
+
+                videoItems.forEach(item => {
+                const playerDiv = item.querySelector('.video-player');
+                if (playerDiv) playerDiv.innerHTML = '';
+                });
+
+                function renderVideo(itemIndex) {
+                const src = localVideoSrcs[itemIndex];
+                if (!src) return;
+
+                const item = videoItems[itemIndex];
+                const playerDiv = item.querySelector('.video-player');
+                playerDiv.innerHTML = '';
+
+                const videoEl = document.createElement('video');
+                videoEl.src = src;
+                videoEl.playsInline = true;
+                videoEl.loop = true;
+                videoEl.style.width = '100%';
+                videoEl.style.height = '100%';
+                videoEl.style.objectFit = 'contain';
+                videoEl.style.background = 'black';
+                videoEl.style.display = 'block';
+
+                const isFirst = (itemIndex === 0);
+                const firstPlayed = container.firstVideoHasPlayed;
+
+                if (isFirst && !firstPlayed) {
+                    videoEl.muted = true;
+                } else {
+                    videoEl.muted = false;
+                    videoEl.setAttribute('autoplay', '');
+                    videoEl.play().catch(() => {});
+                }
+
+                videoEl.addEventListener('click', function() {
+                    if (videoEl.paused) {
+                    if (isFirst && !container.firstVideoHasPlayed) {
+                        container.firstVideoHasPlayed = true;
+                        videoEl.muted = false;
+                    }
+                    videoEl.play().catch(() => {});
+                    } else {
+                    videoEl.pause();
+                    }
+                });
+
+                playerDiv.appendChild(videoEl);
+                }
+
+                function stopAllVideos() {
+                videoItems.forEach(item => {
+                    const playerDiv = item.querySelector('.video-player');
+                    if (playerDiv) playerDiv.innerHTML = '';
+                });
+                }
+
+                function activateVideo(index) {
+                stopAllVideos();
+
+                videoItems.forEach(item => item.classList.remove('active'));
+                videoItems[index].classList.add('active');
+
+                renderVideo(index);
+
+                indicatorDots.forEach(dot => dot.classList.remove('active'));
+                indicatorDots[index].classList.add('active');
+
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+
+                currentVideoIndex = index;
+                resetHideTimer();
+                }
+
+                function resetHideTimer() {
+                clearTimeout(hideControlsTimer);
+                prevButton.style.opacity = '1';
+                nextButton.style.opacity = '1';
+
+                hideControlsTimer = setTimeout(() => {
+                    if (!container.matches(':hover')) {
+                    prevButton.style.opacity = '0';
+                    nextButton.style.opacity = '0';
+                    }
+                }, 3000);
+                }
+                function showControls() {
+                prevButton.style.opacity = '1';
+                nextButton.style.opacity = '1';
+                resetHideTimer();
+                }
+
+                prevButton.addEventListener('click', () => {
+                const prevIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length;
+                activateVideo(prevIndex);
+                });
+                nextButton.addEventListener('click', () => {
+                const nextIndex = (currentVideoIndex + 1) % videoItems.length;
+                activateVideo(nextIndex);
+                });
+
+                indicatorDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const idx = parseInt(this.getAttribute('data-index'), 10);
+                    activateVideo(idx);
+                });
+                });
+
+                container.addEventListener('mousemove', showControls);
+                container.addEventListener('touchstart', showControls);
+
+                function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    const nextIndex = (currentVideoIndex + 1) % videoItems.length;
+                    activateVideo(nextIndex);
+                }, 10000000);
+                }
+                function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+                }
+
+                container.addEventListener('mousedown', stopAutoPlay);
+                container.addEventListener('touchstart', stopAutoPlay);
+                container.addEventListener('mouseenter', stopAutoPlay);
+                container.addEventListener('mouseleave', () => {
+                setTimeout(startAutoPlay, 10000000);
+                });
+
+                stopAllVideos();
+                activateVideo(0);
+                startAutoPlay();
+            });
+
+            const videoCards = document.querySelectorAll('.videos-grid2 .video-card2');
+            if (videoCards.length) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                videoCards.forEach(card => observer.observe(card));
+            }
+
+            const flags = document.querySelectorAll('.language-flag');
+            
+            flags.forEach(flag => {
+                flag.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    flags.forEach(f => f.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    switch(lang) {
+                        case 'ru':
+                            window.location.href = 'index.html';
+                            break;
+                        case 'en':
+                            window.location.href = 'index_en.html';
+                            break;
+                        case 'kz':
+                            window.location.href = 'index_kz.html';
+                            break;
+                    }
+                });
+            });
+            
+            const currentLang = 'en';
+            
+            flags.forEach(flag => {
+                if (flag.getAttribute('data-lang') === currentLang) {
+                    flag.classList.add('active');
+                } else {
+                    flag.classList.remove('active');
+                }
+            });
+    });
+    </script>
+</body>
+</html>
