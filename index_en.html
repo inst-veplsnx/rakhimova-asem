@@ -236,14 +236,16 @@
             font-size: 1.2rem;
         }
         
+        
         .teacher-photo-container {
             flex: 1;
-            min-width: 300px;
+            max-width:350px;
+            min-width: 200px;
             position: relative;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(106, 17, 203, 0.2);
-            height: 450px;
+            aspect-ratio: 3 / 4;
         }
         
         .teacher-photo {
@@ -251,7 +253,7 @@
             height: 100%;
             object-fit: cover;
             background: linear-gradient(45deg, #6a11cb, #2575fc);
-            display: flex;
+            display: block;
             justify-content: center;
             align-items: center;
             color: white;
